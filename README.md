@@ -147,4 +147,4 @@ The script will:
 kubectl get all -n user-management
 ```
 
-public ip [http://34.55.22.220/users](http://34.55.22.220/users){:target="_blank"}
+<a href="http://34.55.22.220/users" target="_blank">http://34.55.22.220/users</a>
