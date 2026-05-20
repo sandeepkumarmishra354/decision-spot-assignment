@@ -76,6 +76,11 @@ sed -i "s|${FRONTEND_IMAGE}|FRONTEND_IMAGE_PLACEHOLDER|g" k8s/frontend/deploymen
 
 echo "  ✔ All manifests applied"
 
+# Restart deployments to pull latest images
+kubectl rollout restart deployment/backend -n "${NAMESPACE}"
+kubectl rollout restart deployment/frontend -n "${NAMESPACE}"
+echo "  ✔ Deployments restarted"
+
 # ---- Step 5: Wait for external IP ----
 echo ""
 echo "[5/5] Waiting for frontend external IP..."

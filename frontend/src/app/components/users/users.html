@@ -41,28 +41,31 @@
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            @if(user.email !== "admin@app.com") {
             <td class="actions">
-              <button class="btn-edit" (click)="openEditForm(user)">
-                Edit
-              </button>
-              @if (deletingId() === user.id) {
-              <span class="confirm-delete">
-                Confirm?
-                <button class="btn-yes" (click)="deleteUser(user.id)">
-                  Yes
+              @if (user.email !== 'admin@app.com') {
+                <button class="btn-edit" (click)="openEditForm(user)">
+                  Edit
                 </button>
-                <button class="btn-no" (click)="cancelDelete()">
-                  No
-                </button>
-              </span>
-              } @else {
-              <button class="btn-delete" (click)="confirmDelete(user.id)">
-                Delete
-              </button>
+                @if (deletingId() === user.id) {
+                  <span class="confirm-delete">
+                    Confirm?
+                    <button class="btn-yes" (click)="deleteUser(user.id)">
+                      Yes
+                    </button>
+                    <button class="btn-no" (click)="cancelDelete()">
+                      No
+                    </button>
+                  </span>
+                } @else {
+                  <button
+                    class="btn-delete"
+                    (click)="confirmDelete(user.id)"
+                  >
+                    Delete
+                  </button>
+                }
               }
             </td>
-            }
           </tr>
           }
         </tbody>
